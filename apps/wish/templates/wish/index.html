@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>main</title>
+  </head>
+  <body>
+    <!--
+    {% if messages%}
+    {%for message in messages%}
+  <p style="background-color:red">{{message}}</p>
+    {%endfor%}
+  {%endif %} -->
+
+  {% for error in request.session.errors %}
+<p style="color:red">{{error}}</p>
+  {% endfor %}
+
+
+    <form action="/register" method="POST">
+    {% csrf_token %}
+    Name:<input type="text" name="name"><br>
+    Email:<input type="text" name="email"><br>
+    Password:<input type="password" name="pwd"><br>
+
+    <a>Password should be at least 8 characters</a><br>
+    Confirm PW:<input type="password" name="confirmpwd"><br>
+    Date Hired:
+
+    <input type="submit" name="thing" value="Register">
+  </form>
+
+  <h1>Login</h1>
+  <form action="/register" method="POST">
+    {% csrf_token %}
+    Email:<input type="text" name="email"><br>
+    Password:<input type="password" name="pwd">
+    <input type="submit" name="thing" value="Register">
+  </form>
+
+  </body>
+</html>

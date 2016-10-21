@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>wish </title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href='/dashboard'>Home</a>
+        <a href='/index'>Logout</a>
+      </nav>
+    </header>
+
+    <h1>Create a New Wish List Item</h1>
+    {% for error in request.session.errors %}
+  <p style="color:red">{{error}}</p>
+    {% endfor %}
+
+    <form action="/item" method="post">
+      {% csrf_token %}
+        Item/Product:<input type='text' name='item'><br>
+        <input type="submit" name="thing" value="Add">
+    </form>
+
+  </body>
+</html>

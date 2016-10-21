@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Hellow, {{your_log.name}}!</h1>
+  <!-- <h1>The email address you entered ({{your_email}}) is VALID</h1> -->
+  <h3>Your Wish List:</h3>
+  <table>
+      <tr>
+      <th>Item</th><th>Added by</th><th>Date added</th><th>Action</th>
+      </tr>
+        {% for car in your_log %}
+      <tr>
+      <td>{{<a href="/wishlistprocess">car.item</a>}}</td><td>{{car.name}}</td><td>{{car.created_at}}</td><td><a href="/wishlistprocess">Delete</a></td>
+      <!-- <td>{{car.created_at}}</td> -->
+      <!-- <td><a href="/delete/{{email.id}}">Delete</a></td> -->
+      </tr>
+      {% endfor %}
+  </table>
+
+
+<h3>Other User's Wish List</h3>
+<table>
+    <tr>
+    <th>Item</th><th>Added by</th><th>Date added</th><th>Action</th>
+    </tr>
+
+    {% for row in all_logs %}
+    <tr>
+    <td>{{<a href="/wishlistprocess">row.item</a>}}</td><td>{{row.name}}</td><td>{{row.name}}</td><td><a href="/wishlistprocess">Add to my Wishlist</a></td>
+    <!-- <td>{{row.created_at}}</td> -->
+    <!-- <td><a href="/delete/{{email.id}}">Delete</a></td> -->
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/itemprocess">Add</a>
+
+</body>
+</html>
